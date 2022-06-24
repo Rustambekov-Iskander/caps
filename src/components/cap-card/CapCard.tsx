@@ -1,0 +1,26 @@
+import React, {FC} from 'react';
+import cl from './CapCard.module.scss';
+import {ICap} from "../../types/caps";
+
+interface capCardProps {
+    cap: ICap;
+}
+
+const CapCard: FC<capCardProps> = ({cap}) => {
+    const name = cap.name.length > 10 ? cap.name.slice(0, 10) + '...' : cap.name;
+
+    return (
+        <div className={cl.card}>
+            <div className={cl.card__img}><img src={cap.capsimage[0].photo} alt="cap"/></div>
+            <div className={cl.card__row}>
+                <div className={cl.card__text}>
+                    <div className={cl.card__title}>{name}</div>
+                    <div className={cl.card__desc}>{cap.brand.name}</div>
+                </div>
+                <div className={cl.card__price}>{cap.price}c</div>
+            </div>
+        </div>
+    );
+};
+
+export default CapCard;
