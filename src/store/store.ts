@@ -1,10 +1,12 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import capsReducer from "./reducers/caps/CapsSlice";
 import capsSearchReducer from "./reducers/caps/SearchSlice";
+import basketReducer from './reducers/caps/BasketSlice';
 
 const rootReducer = combineReducers({
     capsReducer,
-    capsSearchReducer
+    capsSearchReducer,
+    basketReducer
 })
 
 export const setupStore = () => {

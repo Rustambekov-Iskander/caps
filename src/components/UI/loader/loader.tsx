@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {ComponentPropsWithoutRef, FC} from 'react';
 import cl from './Loader.module.scss'
 
-const Loader = () => {
+const Loader:FC<ComponentPropsWithoutRef<"div">> = (props) => {
     return (
-        <div className={cl.ldsHourglass}>
+        <div {...props} className={cl.ldsHourglass}>
         </div>
     );
 }

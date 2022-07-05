@@ -14,7 +14,7 @@ const AppRouter = () => {
         <Routes>
             <Route path={'/'} element={<Home/>}/>
             <Route path={`${CAPS_URL.CATALOG}`} element={<Catalog/>}/>
-            <Route path={`${CAPS_URL.SEARCH}`} element={<SearchPage/>}/>
+            <Route path={`${CAPS_URL.SEARCH}/:search`} element={<SearchPage/>}/>
             <Route path={`${CAPS_URL.CATALOG}/:id`} element={<PostPage/>}/>
         </Routes>
     );

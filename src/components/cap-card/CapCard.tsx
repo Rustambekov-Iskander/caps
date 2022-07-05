@@ -1,6 +1,8 @@
 import React, {FC} from 'react';
 import cl from './CapCard.module.scss';
 import {ICap} from "../../types/caps";
+import {Link} from "react-router-dom";
+import {CAPS_URL} from "../../common/constants";
 
 interface capCardProps {
     cap: ICap;
@@ -10,7 +12,7 @@ const CapCard: FC<capCardProps> = ({cap}) => {
     const name = cap.name.length > 10 ? cap.name.slice(0, 10) + '...' : cap.name;
 
     return (
-        <div className={cl.card}>
+        <Link to={`/${CAPS_URL.CATALOG}/${cap.id}`} className={cl.card}>
             <div className={cl.card__img}><img src={cap.capsimage[0].photo} alt="cap"/></div>
             <div className={cl.card__row}>
                 <div className={cl.card__text}>
@@ -19,7 +21,7 @@ const CapCard: FC<capCardProps> = ({cap}) => {
                 </div>
                 <div className={cl.card__price}>{cap.price}c</div>
             </div>
-        </div>
+        </Link>
     );
 };
 

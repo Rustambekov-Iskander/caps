@@ -7,7 +7,6 @@ interface CapsState {
     error: string;
     count: number;
     limit: number;
-    search: string
 }
 
 const initialState: CapsState = {
@@ -15,8 +14,7 @@ const initialState: CapsState = {
     isLoading: false,
     error: '',
     count: 0,
-    limit: 16,
-    search: '',
+    limit: 8,
 }
 
 export const CapsSlice = createSlice({

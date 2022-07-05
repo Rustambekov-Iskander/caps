@@ -5,25 +5,26 @@ import basket from '../img/icons/basket.svg';
 import search from '../img/icons/search.svg';
 import menu from '../img/icons/menu.svg';
 import {Link, useNavigate} from "react-router-dom";
-import {useAppDispatch} from "../../hooks/redux";
-import {SearchSlice} from "../../store/reducers/caps/SearchSlice";
 import axios from "axios";
 import {CAPS_URL} from "../../common/constants";
 import {ICap} from "../../types/caps";
-import {Autocomplete, InputAdornment, TextField} from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
+import {Autocomplete, TextField} from "@mui/material";
+import {useAppDispatch} from "../../hooks/redux";
+import {SearchSlice} from "../../store/reducers/caps/SearchSlice";
 
 const Header = () => {
-    let navigate = useNavigate()
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState<string | null>(null);
     const [names, setNames] = useState<ICap[]>([]);
 
     const submitHandler = (event: FormEvent<HTMLElement>) => {
         event.preventDefault();
-        dispatch(SearchSlice.actions.searchState(value))
-        setValue('');
-        navigate('/search')
+        if (value) {
+            setValue('');
+            dispatch(SearchSlice.actions.searchState(value));
+            navigate(`/search/${value}`)
+        }
     }
 
     useEffect(() => {
@@ -54,14 +55,15 @@ const Header = () => {
                         <Autocomplete
                             className={cl.header__search}
                             options={names.map((name) => name.name)}
-                            renderInput={(params) =>
-                                <TextField
-                                    value={value}
-                                    onChange={(e) => setValue(e.target.value)}
-                                    {...params}
-                                />
-
-                        }
+                            freeSolo
+                            value={value}
+                            onChange={(e: any, newValue: string | null) => setValue(newValue)}
+                            renderInput={ (params) =>
+                                    <TextField
+                                        label={'Поиск'}
+                                        value={value}
+                                        onChange={(e) => setValue(e.target.value)}
+                                        {...params}/>}
                         />
                     </form>
 
