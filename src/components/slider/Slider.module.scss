@@ -1,0 +1,42 @@
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(132, 126, 126, 1);
+
+  &__img img {
+    width: 218px;
+    height: 144px;
+    margin-bottom: 40px;
+    object-fit: cover;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    text-align: left;
+  }
+  &__desc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: -0.05em;
+    text-align: left;
+    margin: 11px 0;
+  }
+  &__price {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(253, 219, 22, 1);
+  }
+
+}
+.slideList {
+  max-width: 1182px;
+  padding: 0px 99px;
+}

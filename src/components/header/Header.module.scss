@@ -17,33 +17,14 @@
   }
 
   &__search {
-    @extend .display-flex;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 10px 10px;
-    border-radius: 15px;
-
-    input {
-      border: none;
-      outline-style: none;
-      padding: 0 10px;
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 22px;
-      text-align: left;
-      width: auto;
-    }
-
-    img {
-      width: 14px;
-      height: 14px;
-    }
+      width: 270px;
   }
 
   &__menu {
     @extend .display-flex;
     width: 510px;
 
-    li {
+    a {
       font-size: 18px;
       font-weight: 600;
       line-height: 22px;
@@ -70,21 +51,16 @@
   }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
   .header__search {
-    input {
-      padding: 5px 10px;
       width: 168px;
-    }
   }
 }
 
 @media (max-width: 768px) {
   .header {
     &__search {
-      input {
         width: 359px;
-      }
     }
 
     &__menu {
@@ -100,10 +76,8 @@
 
 @media (max-width: 480px) {
   .header__search {
-    input {
       padding: 5px 10px;
       width: 168px;
-    }
   }
   .header__burgerMenu {
     margin-left: 23px;
