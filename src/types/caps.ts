@@ -22,3 +22,7 @@ export interface ICap {
 export interface ICaps {
     caps: ICap[]
 }
+
+export interface Basket {
+    
+}

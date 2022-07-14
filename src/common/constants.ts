@@ -3,4 +3,7 @@ export const CAPS_URL = {
     CAPS: 'caps',
     CATALOG: 'catalog',
     SEARCH: 'search',
+    USERS: 'users',
+    LOGIN: 'signin',
+    REGISTRATION: 'signup',
 }

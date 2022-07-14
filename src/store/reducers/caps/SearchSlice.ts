@@ -3,14 +3,14 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 interface SearchState {
     caps: ICap[]
-    search: string;
+    search: any[];
     isLoading: boolean;
     error: string;
 }
 
 const initialState: SearchState = {
     caps: [],
-    search: '',
+    search: [],
     isLoading: false,
     error: '',
 }
@@ -31,7 +31,7 @@ export const SearchSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload
         },
-        searchState(state, action: PayloadAction<string>) {
+        searchState(state, action: PayloadAction<any[]>) {
             state.search = action.payload;
         }
     }

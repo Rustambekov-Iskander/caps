@@ -12,8 +12,10 @@ export const getSliderPost = async () => {
 
 export const getCapById = async (id: number) => {
     try {
-
     }catch (e){
-
     }
+}
+
+export const accessToken = () => {
+    return document.cookie.indexOf("access") == 0;
 }
