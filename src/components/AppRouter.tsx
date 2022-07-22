@@ -8,6 +8,7 @@ import SearchPage from "../pages/search/SearchPage";
 import PostPage from "../pages/post-page/PostPage";
 import Login from "../pages/authorization/Login";
 import Registration from "../pages/authorization/Registration";
+import Basket from "../pages/basket/Basket";
 
 export const history = createBrowserHistory()
 
@@ -18,6 +19,7 @@ const AppRouter = () => {
             <Route path={`${CAPS_URL.CATALOG}`} element={<Catalog/>}/>
             <Route path={`${CAPS_URL.SEARCH}/:search`} element={<SearchPage/>}/>
             <Route path={`${CAPS_URL.CATALOG}/:id`} element={<PostPage/>}/>
+            <Route path={`${CAPS_URL.BASKET}/`} element={<Basket/>}/>
             <Route path={`${CAPS_URL.LOGIN}/`} element={<Login/>}/>
             <Route path={`${CAPS_URL.REGISTRATION}/`} element={<Registration/>}/>
         </Routes>

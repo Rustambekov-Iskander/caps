@@ -1,0 +1,127 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 80px;
+
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &__images {
+    margin-right: 30px;
+  }
+  &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 25px;
+    img {
+      width: 483px;
+      height: 322px;
+      object-fit: contain;
+    }
+  }
+  &__smallImages {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .main__imageSmall {
+      border: 1px solid #C4C4C4;
+      border-radius: 10px;
+      padding: 15px 22px;
+      img {
+        width: 128px;
+        height: 103px;
+      }
+    }
+  }
+
+  &__counterDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: left;
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+  }
+  &__brand {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+  }
+  &__priceButtonDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  &__price {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    text-align: right;
+    margin-bottom: 30px;
+    color: rgba(253, 219, 22, 1);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .main {
+    flex-wrap: wrap;
+    &__images {
+      margin: 20px auto;
+    }
+    &__image {
+      padding: 20px;
+      img {
+        width: 383px;
+        height: 222px;
+      }
+    }
+    &__imageSmall {
+      flex-wrap: wrap;
+      img {
+        width: 108px;
+        height: 93px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    &__image {
+      img {
+        width: 283px;
+        height: 122px;
+      }
+    }
+    &__smallImages {
+      flex-direction: column;
+    }
+    &__imageSmall {
+      img {
+        width: 283px;
+        height: 122px;
+      }
+      margin: 10px 0;
+    }
+  }
+}

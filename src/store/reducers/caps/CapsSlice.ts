@@ -21,18 +21,25 @@ export const CapsSlice = createSlice({
     name: 'caps',
     initialState,
     reducers: {
+        //start loading
         capsFetching(state) {
             state.isLoading = true;
         },
+
+        //if successfully
         capsFetchingSuccess(state, action: PayloadAction<ICap[]>) {
             state.isLoading = false;
             state.error = '';
             state.caps = action.payload;
         },
+
+        //if error
         capsFetchingError(state, action) {
             state.isLoading = false;
             state.error = action.payload
         },
+
+        //change page in catalog
         countPage(state, action) {
             state.count = action.payload
         },

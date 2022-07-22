@@ -1,5 +1,6 @@
 import axios from "axios";
 import {CAPS_URL} from "../common/constants";
+import {IBasket, ICap} from "../types/caps";
 
 export const getSliderPost = async () => {
     try {
@@ -10,12 +11,17 @@ export const getSliderPost = async () => {
     }
 }
 
-export const getCapById = async (id: number) => {
+export const getCapById = async (id: string | undefined | number) => {
     try {
-    }catch (e){
+        const response = await axios.get(`${CAPS_URL.CAPS_API_URL}/${CAPS_URL.CAPS}/${id}/`);
+        return response.data;
+    }catch (e: any){
+        return e.message;
     }
 }
 
-export const accessToken = () => {
-    return document.cookie.indexOf("access") == 0;
+export const getCapsInBasket = async (baskets: IBasket[], caps: ICap[]) => {
+    for (let i = 0; i < baskets.length; ++i) {
+        caps.push(await getCapById(baskets[i].item));
+    }
 }

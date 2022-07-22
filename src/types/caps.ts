@@ -16,13 +16,16 @@ export interface ICap {
     capsimage: {
         id: number,
         photo: string
-    }[];
+    }[] | [];
 }
 
 export interface ICaps {
     caps: ICap[]
 }
 
-export interface Basket {
-    
+export interface IBasket {
+    id: number;
+    item: number;
+    quantity: number;
+    user: number;
 }

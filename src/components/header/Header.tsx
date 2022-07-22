@@ -7,10 +7,12 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {CAPS_URL} from "../../common/constants";
 import {ICap} from "../../types/caps";
-import {Autocomplete, TextField} from "@mui/material";
+import {Autocomplete, IconButton, TextField} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {SearchSlice} from "../../store/reducers/caps/SearchSlice";
 import SideBar from "../side-bar/SideBar";
+import Cookies from "js-cookie";
+import {isAuthAction} from "../../store/reducers/auth/ActionCreators";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -38,7 +40,8 @@ const Header = () => {
                 setNames(response.data.results);
             })()
         }
-    }, [value])
+    }, [value]);
+
 
     return (
         <header className={cl.header}>
@@ -70,7 +73,9 @@ const Header = () => {
                     </form>
 
                     <div className={cl.header__icons}>
-                        <div className={cl.header__basket}><img src={basket} alt="basket"/></div>
+                        <IconButton component={Link} to={`/${CAPS_URL.BASKET}`} className={cl.header__basket}>
+                            <img src={basket} alt="basket"/>
+                        </IconButton>
                         <div className={cl.header__burgerMenu} onClick={() => setSideBar(!sideBar)}>
                             <img src={menu} alt="menu"/>
                         </div>

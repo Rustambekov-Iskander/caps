@@ -5,10 +5,14 @@ import axios from "axios";
 import {CAPS_URL} from "../../common/constants";
 import {Button, Card, TextField, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
+import {useAppDispatch} from "../../hooks/redux";
+import {isAuthAction} from "../../store/reducers/auth/ActionCreators";
+import Cookies from 'js-cookie';
 
 
 const Login = () => {
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
 
     const onSubmit = async () => {
         try {
@@ -16,7 +20,9 @@ const Login = () => {
                 `${CAPS_URL.CAPS_API_URL}/${CAPS_URL.USERS}/${CAPS_URL.LOGIN}/`,
                     values
                 )
-            document.cookie = `access=${response.data.access}; path=/ ;max-age=3600`;
+            Cookies.set('access', response.data.access, {expires: 1, path: '/'})
+            Cookies.set('refresh', response.data.refresh, {expires: 1, path: '/'})
+            dispatch(isAuthAction(true, response.data.access, response.data.refresh))
             navigate('/')
         }catch (e) {
             console.log(e);
