@@ -1,0 +1,69 @@
+//if !isAuth
+.card {
+  height: 50vh;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: transparent;
+  position: relative;
+  &__title {
+    max-width: 700px;
+    text-align: center;
+    background-color: darkorange;
+  }
+  &__buttons a{
+    margin: 10px;
+  }
+}
+
+//basket
+.main {
+  margin: 50px 0;
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+//basket item
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 50px 0;
+  margin: 20px 0;
+  border-top: 3px solid rgba(132, 126, 126, 1);
+  border-bottom: 3px solid rgba(132, 126, 126, 1);
+  &__img {
+    img {
+      width: 144px;
+      height: 96px;
+      cursor: pointer;
+      object-fit: contain;
+    }
+  }
+  &__text {
+    margin: 5px;
+    cursor: pointer;
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+  }
+  &__desc {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+  }
+  &__price {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    color: rgba(253, 219, 22, 1);
+  }
+}

@@ -8,11 +8,12 @@ import Loader from "../../components/UI/loader/loader";
 const SearchPage = () => {
     const params = useParams();
     const dispatch = useAppDispatch();
-    const {search, caps, error, isLoading} = useAppSelector(state => state.capsSearchReducer)
+    const { caps, error, isLoading} = useAppSelector(state => state.capsSearchReducer);
+
 
     useEffect(() => {
-        dispatch(fetchCapsSearch(params.search));
-    }, [params])
+        dispatch(fetchCapsSearch(params.search?.replace('%', ' ')));
+    }, [params.search])
 
     if (error) {
         return (
@@ -20,14 +21,17 @@ const SearchPage = () => {
         )
     }else if ( isLoading ) {
         return (
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div className={'container'} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Loader/>
             </div>
         )
     }else {
         return (
-            <div>
-                {caps.length === 0 ?<h1>По запросу "{search}" ничего не найдено</h1> :<CapsList caps={caps}/>}
+            <div className={'container'}>
+                {caps.length === 0
+                    ?<h1>По запросу "{params.search?.replace('%', ' ')}" ничего не найдено</h1>
+                    :<CapsList caps={caps}/>
+                }
             </div>
         );
     }

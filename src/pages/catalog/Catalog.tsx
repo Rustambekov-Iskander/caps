@@ -43,9 +43,7 @@ const Catalog = () => {
         <div className={'container'}>
             {
                 isLoading
-                ?<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Loader/>
-                </div>
+                ?<Loader/>
                 :<>
                     <div className={cl.sort}>
                         <FormControl sx={{ width: '270px', m: '20px 0'}}>
@@ -72,6 +70,6 @@ const Catalog = () => {
             }
         </div>
     )
-}
+};
 
 export default Catalog;

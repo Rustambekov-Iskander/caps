@@ -13,7 +13,9 @@ const CapCard: FC<capCardProps> = ({cap}) => {
 
     return (
         <Link to={`/${CAPS_URL.CATALOG}/${cap.id}`} className={cl.card}>
-            <div className={cl.card__img}><img src={cap.capsimage[0].photo} alt="cap"/></div>
+            <div className={cl.card__img}>
+                {cap.capsimage ?<img src={cap.capsimage[0].photo} alt="cap"/> :'Нет фото'}
+            </div>
             <div className={cl.card__row}>
                 <div className={cl.card__text}>
                     <div className={cl.card__title}>{name}</div>

@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import cl from './Slider.module.scss';
-import {ICap} from "../../types/caps";
+import {ICap} from "../../../types/caps";
 
 interface SliderItemProps {
     cap: ICap;

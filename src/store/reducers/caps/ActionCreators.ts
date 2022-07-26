@@ -3,9 +3,11 @@ import {CapsSlice} from "./CapsSlice";
 import axios from "axios";
 import {CAPS_URL} from "../../../common/constants";
 import {SearchSlice} from "./SearchSlice";
-import {ICap} from "../../../types/caps";
-import {useAppSelector} from "../../../hooks/redux";
+import {IBasket, ICap} from "../../../types/caps";
+import {BasketSlice} from "./BasketSlice";
+import {getCapsInBasket} from "../../../utils/services";
 
+//catalog
 export const fetchCaps = (current: number, limit: number, sort: string) => async (dispatch: AppDispatch) => {
     try {
         dispatch(CapsSlice.actions.capsFetching());
@@ -19,6 +21,7 @@ export const fetchCaps = (current: number, limit: number, sort: string) => async
     }
 }
 
+//search
 export const fetchCapsSearch = (search: string | undefined) => async (dispatch: AppDispatch) => {
     try {
         dispatch(SearchSlice.actions.capsFetching());
@@ -31,13 +34,25 @@ export const fetchCapsSearch = (search: string | undefined) => async (dispatch: 
     }
 }
 
-export const fetchCapsBasket = (capsList:ICap) => async (dispatch: AppDispatch) => {
+//basket
+export const fetchCapsBasket = (access: string) => async (dispatch: AppDispatch) => {
     try {
-        dispatch(SearchSlice.actions.capsFetching());
-        const {caps} = useAppSelector(state => state.basketReducer)
-        dispatch(SearchSlice.actions.capsFetchingSuccess([...caps, capsList]));
+        dispatch(BasketSlice.actions.basketFetching());
+        //get usual caps in basket list
+        const response = await axios.get(
+            `${CAPS_URL.CAPS_API_URL}/${CAPS_URL.BASKET}/`,
+            { headers: {authorization: `Bearer ${access}`} }
+        );
+
+        const basketList = response.data.results
+        const caps:ICap[] = [];
+        await getCapsInBasket(basketList, caps);
+
+        dispatch(BasketSlice.actions.basketCapsAdd(basketList));
+        dispatch(BasketSlice.actions.basketFetchingSuccess(caps));
     } catch (e: any) {
         dispatch(SearchSlice.actions.capsFetchingError(e.message))
     }
 }
+
 
