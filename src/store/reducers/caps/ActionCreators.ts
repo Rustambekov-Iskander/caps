@@ -38,13 +38,17 @@ export const fetchCapsSearch = (search: string | undefined) => async (dispatch: 
 export const fetchCapsBasket = (access: string) => async (dispatch: AppDispatch) => {
     try {
         dispatch(BasketSlice.actions.basketFetching());
-        //get basket list
-        const response = await axios.get('http://164.92.190.147:8003/api/users/basket/',
-            { headers: {authorization: `Bearer ${access}`} });
-        const basketList = response.data.results
+        //get usual caps in basket list
+        const response = await axios.get(
+            `${CAPS_URL.CAPS_API_URL}/${CAPS_URL.BASKET}/`,
+            { headers: {authorization: `Bearer ${access}`} }
+        );
 
+        const basketList = response.data.results
         const caps:ICap[] = [];
         await getCapsInBasket(basketList, caps);
+
+        dispatch(BasketSlice.actions.basketCapsAdd(basketList));
         dispatch(BasketSlice.actions.basketFetchingSuccess(caps));
     } catch (e: any) {
         dispatch(SearchSlice.actions.capsFetchingError(e.message))

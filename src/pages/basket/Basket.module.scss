@@ -1,3 +1,4 @@
+//if !isAuth
 .card {
   height: 50vh;
   margin: 0 auto;
@@ -18,10 +19,16 @@
   }
 }
 
+//basket
 .main {
   margin: 50px 0;
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
+//basket item
 .item {
   display: flex;
   align-items: center;
@@ -35,11 +42,13 @@
     img {
       width: 144px;
       height: 96px;
+      cursor: pointer;
       object-fit: contain;
     }
   }
   &__text {
     margin: 5px;
+    cursor: pointer;
   }
   &__title {
     font-size: 24px;

@@ -1,22 +1,20 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import cl from './Counter.module.scss';
 
 interface counterProps {
-    countFunc: (count: number) => void;
+    count: number;
+    setCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const MyCounter:FC<counterProps> = ({countFunc}) => {
-    const [count, setCount] = useState<number>(1);
+const MyCounter:FC<counterProps> = ({ count, setCount}) => {
 
     const handleCounter = (event: any) => {
         switch (event.target.value) {
             case '+':
                 setCount(count < 10 ? count + 1 : count);
-                countFunc(count);
                 break;
             case '-':
                 setCount(count > 1 ? count - 1 : count);
-                countFunc(count);
                 break;
         }
     }

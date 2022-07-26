@@ -24,8 +24,8 @@ export interface ICaps {
 }
 
 export interface IBasket {
-    id: number;
+    id?: number;
     item: number;
-    quantity: number;
+    quantity?: number;
     user: number;
 }

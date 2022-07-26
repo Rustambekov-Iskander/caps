@@ -1,15 +1,16 @@
-import {ICap} from "../../../types/caps";
+import {IBasket, ICap} from "../../../types/caps";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {CapsSlice} from "./CapsSlice";
 
 interface BasketState {
     caps: ICap[];
+    basketCaps: IBasket[];
     isLoading: boolean;
     error: string;
 }
 
 const initialState: BasketState = {
     caps: [],
+    basketCaps: [],
     isLoading: false,
     error: '',
 }
@@ -28,6 +29,9 @@ export const BasketSlice = createSlice({
             state.isLoading = false;
             state.error = '';
             state.caps = action.payload;
+        },
+        basketCapsAdd(state, action: PayloadAction<IBasket[]>) {
+          state.basketCaps = action.payload;
         },
 
         //if error
