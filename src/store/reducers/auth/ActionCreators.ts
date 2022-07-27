@@ -19,7 +19,7 @@ export const logOut = () => (dispatch: AppDispatch) => {
 export const getUserAction = (access: string) => async (dispatch: AppDispatch) => {
     dispatch(AuthSlice.actions.userFetching());
     const response = await axios.get(
-        `${CAPS_URL.CAPS_API_URL}/${CAPS_URL.PROFILE}/`,
+        `http://164.92.190.147:8003/api/users/profile/`,
         { headers: {authorization: `Bearer ${access}`} }
     );
     dispatch(AuthSlice.actions.userFetchingSuccess(response.data));

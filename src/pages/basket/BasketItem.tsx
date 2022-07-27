@@ -23,7 +23,7 @@ const BasketItem:FC<BasketItemProps> = ({cap, handleCheckbox}) => {
     };
 
     const redirect = () => {
-      navigate(`/${CAPS_URL.CATALOG}/${cap.id}`);
+      navigate(`/catalog/${cap.id}`);
     };
 
 

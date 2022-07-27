@@ -83,14 +83,14 @@ const Basket = () => {
                     <div className={cl.card__buttons}>
                         <Button
                             component={Link}
-                            to={`/${CAPS_URL.LOGIN}/`}
+                            to={`/signin/`}
                             color={'secondary'}
                             variant={'contained'}>
                             Войти
                         </Button>
                         <Button
                             component={Link}
-                            to={`/${CAPS_URL.REGISTRATION}/`}
+                            to={`/signup/`}
                             color={'secondary'}
                             variant={'contained'}>
                             Зарегистрироваться

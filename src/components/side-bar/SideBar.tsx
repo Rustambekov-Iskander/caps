@@ -51,7 +51,7 @@ const SideBar: FC<SideBarProps> = ({isOpen, setIsOpen}) => {
             <Divider/>
             <List>
                 <ListItem >
-                    <Link to={`/${CAPS_URL.CATALOG}`} onClick={() => setIsOpen(false)}>
+                    <Link to={`/catalog`} onClick={() => setIsOpen(false)}>
                         <ListItemButton>
                             <ListItemIcon> <ViewListIcon/> </ListItemIcon>
                             <Typography> Каталог </Typography>
@@ -62,7 +62,7 @@ const SideBar: FC<SideBarProps> = ({isOpen, setIsOpen}) => {
                     !isAuth
                         ?
                         <ListItem>
-                            <Link to={`/${CAPS_URL.LOGIN}/`} onClick={() => setIsOpen(false)}>
+                            <Link to={`/signin/`} onClick={() => setIsOpen(false)}>
                                 <ListItemButton>
                                     <ListItemIcon> <LoginIcon/> </ListItemIcon>
                                     <Typography>Войти</Typography>

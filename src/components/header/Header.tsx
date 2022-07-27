@@ -27,7 +27,7 @@ const Header = () => {
         if (value) {
             dispatch(SearchSlice.actions.searchState([...search, value]));
             setValue('');
-            navigate(`/${CAPS_URL.SEARCH}/${value}`)
+            navigate(`/search/${value}`)
         }
     }
 
@@ -35,7 +35,7 @@ const Header = () => {
         if (value) {
             (async () => {
                 const response = await axios.get(
-                    `${CAPS_URL.CAPS_API_URL}/${CAPS_URL.CAPS}/?search=${value}&limit=5`
+                    `http://164.92.190.147:8003/api/caps/?search=${value}&limit=5`
                 )
                 setNames(response.data.results);
             })()
@@ -49,7 +49,7 @@ const Header = () => {
                 <div className={cl.header__inner}>
                     <Link to={'/'} className={cl.header__logo}><img src={logo} alt="logo"/></Link>
                     <menu className={cl.header__menu}>
-                        <Link to={`/${CAPS_URL.CATALOG}`}>Каталог</Link>
+                        <Link to={`/catalog`}>Каталог</Link>
                         <Link to={'/'}>Кастомные</Link>
                         <Link to={'/'}>Бренды</Link>
                         <Link to={'/'}>О Нас</Link>
@@ -73,7 +73,7 @@ const Header = () => {
                     </form>
 
                     <div className={cl.header__icons}>
-                        <IconButton component={Link} to={`/${CAPS_URL.BASKET}`} className={cl.header__basket}>
+                        <IconButton component={Link} to={`/users/basket`} className={cl.header__basket}>
                             <img src={basket} alt="basket"/>
                         </IconButton>
                         <div className={cl.header__burgerMenu} onClick={() => setSideBar(!sideBar)}>

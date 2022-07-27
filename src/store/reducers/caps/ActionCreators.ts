@@ -12,7 +12,7 @@ export const fetchCaps = (current: number, limit: number, sort: string) => async
     try {
         dispatch(CapsSlice.actions.capsFetching());
         const response = await axios.get(
-            `${CAPS_URL.CAPS_API_URL}/${CAPS_URL.CAPS}/?limit=${limit}&offset=${current}&ordering=${sort}`
+            `http://164.92.190.147:8003/api/caps/?limit=${limit}&offset=${current}&ordering=${sort}`
         );
         dispatch(CapsSlice.actions.countPage(response.data.count));
         dispatch(CapsSlice.actions.capsFetchingSuccess(response.data.results));
@@ -26,7 +26,7 @@ export const fetchCapsSearch = (search: string | undefined) => async (dispatch: 
     try {
         dispatch(SearchSlice.actions.capsFetching());
         const response = await axios.get(
-        `${CAPS_URL.CAPS_API_URL}/${CAPS_URL.CAPS}/?search=${search}`
+        `http://164.92.190.147:8003/api/caps/?search=${search}`
         );
         dispatch(SearchSlice.actions.capsFetchingSuccess(response.data.results));
     } catch (e: any) {
@@ -40,7 +40,7 @@ export const fetchCapsBasket = (access: string) => async (dispatch: AppDispatch)
         dispatch(BasketSlice.actions.basketFetching());
         //get usual caps in basket list
         const response = await axios.get(
-            `${CAPS_URL.CAPS_API_URL}/${CAPS_URL.BASKET}/`,
+            `http://164.92.190.147:8003/api/users/basket/`,
             { headers: {authorization: `Bearer ${access}`} }
         );
 
