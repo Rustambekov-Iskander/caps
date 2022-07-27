@@ -12,7 +12,7 @@ const CapCard: FC<capCardProps> = ({cap}) => {
     const name = cap.name.length > 10 ? cap.name.slice(0, 10) + '...' : cap.name;
 
     return (
-        <Link to={`/${CAPS_URL.CATALOG}/${cap.id}`} className={cl.card}>
+        <Link to={`/catalog/${cap.id}`} className={cl.card}>
             <div className={cl.card__img}>
                 {cap.capsimage ?<img src={cap.capsimage[0].photo} alt="cap"/> :'Нет фото'}
             </div>

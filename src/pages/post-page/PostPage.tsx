@@ -78,7 +78,7 @@ const PostPage = () => {
             }
 
         }else if (!isAuth) {
-            navigate(`/${CAPS_URL.BASKET}`);
+            navigate(`/users/basket`);
         }
     }
 

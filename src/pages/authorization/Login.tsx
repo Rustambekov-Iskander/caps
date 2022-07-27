@@ -17,7 +17,7 @@ const Login = () => {
     const onSubmit = async () => {
         try {
             const response = await axios.post(
-                `${CAPS_URL.CAPS_API_URL}/${CAPS_URL.USERS}/${CAPS_URL.LOGIN}/`,
+                `http://164.92.190.147:8003/api/users/signin/`,
                     values
                 )
             Cookies.set('access', response.data.access, {expires: 1, path: '/'})

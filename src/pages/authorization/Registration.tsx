@@ -13,11 +13,11 @@ const Registration = () => {
     const onSubmit = async () => {
         try {
             const response = await axios.post(
-                `${CAPS_URL.CAPS_API_URL}/${CAPS_URL.USERS}/${CAPS_URL.REGISTRATION}/`,
+                `http://164.92.190.147:8003/api/users/signup/`,
                 values
             );
             alert('Регистрация прошла успешно');
-            navigate(`/${CAPS_URL.LOGIN}/`);
+            navigate(`/signin/`);
         } catch (e) {
             console.log(e);
             alert('пользователь с таким именем, номером телефона и email уже существуют');

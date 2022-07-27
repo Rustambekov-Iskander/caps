@@ -16,12 +16,12 @@ const AppRouter = () => {
     return (
         <Routes>
             <Route path={'/'} element={<Home/>}/>
-            <Route path={`${CAPS_URL.CATALOG}`} element={<Catalog/>}/>
-            <Route path={`${CAPS_URL.SEARCH}/:search`} element={<SearchPage/>}/>
-            <Route path={`${CAPS_URL.CATALOG}/:id`} element={<PostPage/>}/>
-            <Route path={`${CAPS_URL.BASKET}/`} element={<Basket/>}/>
-            <Route path={`${CAPS_URL.LOGIN}/`} element={<Login/>}/>
-            <Route path={`${CAPS_URL.REGISTRATION}/`} element={<Registration/>}/>
+            <Route path={`catalog`} element={<Catalog/>}/>
+            <Route path={`search/:search`} element={<SearchPage/>}/>
+            <Route path={`catalog/:id`} element={<PostPage/>}/>
+            <Route path={`users/basket/`} element={<Basket/>}/>
+            <Route path={`signin/`} element={<Login/>}/>
+            <Route path={`signup/`} element={<Registration/>}/>
         </Routes>
     );
 }
