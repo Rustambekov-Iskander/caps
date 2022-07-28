@@ -4,6 +4,7 @@ export const CAPS_URL = {
     CAPS: 'caps',
     CATALOG: 'catalog',
     BASKET: 'users/basket',
+    DIGITS: 'digits',
     ORDERS: 'orders',
     SEARCH: 'search',
     USERS: 'users',

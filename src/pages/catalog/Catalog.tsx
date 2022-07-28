@@ -7,6 +7,7 @@ import cl from './Catalog.module.scss';
 import Loader from "../../components/UI/loader/loader";
 
 const Catalog = () => {
+    //hooks
     const dispatch = useAppDispatch();
 
     //caps
