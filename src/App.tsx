@@ -10,7 +10,7 @@ import {fetchCapsBasket} from "./store/reducers/caps/ActionCreators";
 
 function App() {
     const dispatch = useAppDispatch();
-    const {isAuth} = useAppSelector(state => state.authReducer);
+    const {isAuth, user} = useAppSelector(state => state.authReducer);
 
     useEffect(() => {
         const access = Cookies.get('access');

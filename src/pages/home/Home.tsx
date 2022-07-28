@@ -9,6 +9,7 @@ import MiniCapCards from "../../components/mini-cap-cards/MiniCapCards";
 import MiniBanners from "../../components/mini-banner/MiniBanners";
 import bannerImg from '../../components/img/main-banner.png';
 import secondBannerImg from '../../components/img/second-banner.png';
+import CapsInNumber from "../../components/digits/CapsInNumber";
 
 
 const Home = () => {
@@ -16,11 +17,10 @@ const Home = () => {
     const [capsSlide, setCapsSlide] = useState<ICap[]>([]);
 
     //page state
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         (async () => {
-            setIsLoading(true);
             setCapsSlide(await getSliderPost());
             setIsLoading(false);
         })()
@@ -42,6 +42,7 @@ const Home = () => {
                     <Slider caps={capsSlide}/>
                 </div>
                 <MainBanner caps={capsSlide} buttonColor={'#670098'} color={'white'} bannerImg={secondBannerImg}/>
+                <CapsInNumber/>
             </div>
         );
     }else {

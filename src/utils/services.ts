@@ -81,3 +81,13 @@ export const postOrder = async (caps: IBasket[], access: string) => {
         return e.message
     }
 }
+
+//custom caps in digit
+export const getCapsInNumber = async () => {
+    try {
+        const resp = await axios.get(`${CAPS_URL.CAPS_API_URL}/${CAPS_URL.DIGITS}/`);
+        return resp.data[0]
+    }catch (e: any) {
+        return e.message;
+    }
+}

@@ -20,6 +20,7 @@ const Basket = () => {
     const {caps, isLoading, basketCaps} = useAppSelector(state => state.basketReducer);
     const [order, setOrder] = useState<IBasket[]>([]);
 
+
     const makeOrder = async () => {
         if (window.confirm('Вы уверены что хотите заказать все выбранные товары в корзине?')){
             await postOrder(order, access);
@@ -41,6 +42,7 @@ const Basket = () => {
             setOrder([...newOrder]);
         }
     }
+
 
     if (isAuth) {
         if (isLoading) {

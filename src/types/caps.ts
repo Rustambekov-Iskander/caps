@@ -29,3 +29,10 @@ export interface IBasket {
     quantity?: number;
     user: number;
 }
+
+export interface IDigits {
+    id: number;
+    saled: number;
+    year_in_market: number;
+    clients: number;
+}
