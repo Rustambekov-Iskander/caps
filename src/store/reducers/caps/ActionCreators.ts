@@ -3,7 +3,7 @@ import {CapsSlice} from "./CapsSlice";
 import axios from "axios";
 import {CAPS_URL} from "../../../common/constants";
 import {SearchSlice} from "./SearchSlice";
-import {IBasket, ICap} from "../../../types/caps";
+import {ICap} from "../../../types/caps";
 import {BasketSlice} from "./BasketSlice";
 import {getCapsInBasket} from "../../../utils/services";
 

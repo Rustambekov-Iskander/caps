@@ -8,7 +8,11 @@ import Loader from "../../components/UI/loader/loader";
 
 const Catalog = () => {
     const dispatch = useAppDispatch();
+
+    //caps
     const {caps, isLoading, error, limit, count} = useAppSelector(state => state.capsReducer)
+
+    //pagination and sort
     const [sort, setSort] = useState('created_data');
     const [currentPage, setCurrentPage] = useState(1);
     const pagesCount = Math.ceil(count / limit);

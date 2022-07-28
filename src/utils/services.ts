@@ -3,6 +3,7 @@ import {CAPS_URL} from "../common/constants";
 import {IBasket, ICap} from "../types/caps";
 
 //=slider=
+//get slider
 export const getSliderPost = async () => {
     try {
         const resp = await axios.get(`${CAPS_URL.CAPS_API_URL}/${CAPS_URL.CAPS}/?limit=12`);
@@ -11,6 +12,7 @@ export const getSliderPost = async () => {
         return e.message;
     }
 }
+
 
 //=caps=
 //get cap

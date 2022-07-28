@@ -3,12 +3,14 @@ import capsReducer from "./reducers/caps/CapsSlice";
 import capsSearchReducer from "./reducers/caps/SearchSlice";
 import basketReducer from './reducers/caps/BasketSlice';
 import authReducer from './reducers/auth/AuthSlice';
+import bannerReducer from './reducers/banner/BannerSlice';
 
 const rootReducer = combineReducers({
     capsReducer,
     capsSearchReducer,
     basketReducer,
-    authReducer
+    authReducer,
+    bannerReducer
 })
 
 export const setupStore = () => {

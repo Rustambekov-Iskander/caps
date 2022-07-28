@@ -1,21 +1,35 @@
-import React, {ComponentPropsWithoutRef, FC} from 'react';
-import cl from './Button.module.scss';
+import React, {FC} from 'react';
+import Button from '@mui/material/Button';
 
-interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
+interface ButtonProps {
     padding?: string;
+    color?: string;
+    backgroundColor?: string;
     children: React.ReactNode;
+    onClick?: () => void;
 }
 
 const MyButton: FC<ButtonProps> = ({
      children,
      padding = '24px 40px',
-     ...props
+     color= 'black',
+     backgroundColor= '#FDDB16',
+     onClick
 }) => {
 
     return (
-        <button {...props} className={cl.button} style={{ padding: padding }}>
+        <Button
+            onClick={onClick}
+            variant="contained"
+            sx={{
+                padding: padding,
+                borderRadius: '20px',
+                color: color,
+                backgroundColor: backgroundColor
+            }}
+        >
             {children}
-        </button>
+        </Button>
     );
 };
 
