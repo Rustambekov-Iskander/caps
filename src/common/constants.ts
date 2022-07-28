@@ -1,5 +1,6 @@
 export const CAPS_URL = {
     CAPS_API_URL: 'http://164.92.190.147:8003/api',
+    BANNERS: 'baner',
     CAPS: 'caps',
     CATALOG: 'catalog',
     BASKET: 'users/basket',

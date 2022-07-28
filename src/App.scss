@@ -26,9 +26,20 @@ a {
   justify-content: center;
 }
 
+.yellow {
+  color: #FDDB16;
+}
+
 .container {
   width: 1274px;
   margin: 0 auto;
+
+  @media (max-width: 1500px) {
+    & {
+      width: 1450px;
+      padding: 0 20px;
+    }
+  }
   @media (max-width: 1300px) {
     & {
       width: 1200px;

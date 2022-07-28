@@ -4,24 +4,12 @@ $text-width: 489.24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
 
-  &__img {
-    img {
-      width: 100%;
-      height: 596.54px;
-      object-fit: cover;
-      object-position: right;
-      border-radius: 5px;
-
-    }
-  }
   &__text {
-    position: absolute;
     margin-top: 138px;
     padding: 0px 30px;
-    //border: 1px solid;
   }
+
   &__title {
     font-size: 96px;
     font-weight: 700;
@@ -30,6 +18,7 @@ $text-width: 489.24px;
     max-width: $text-width;
     margin-bottom: 25px;
   }
+
   &__desc {
     font-size: 18px;
     font-weight: 400;
@@ -38,6 +27,7 @@ $text-width: 489.24px;
     max-width: $text-width;
     margin-bottom: 30px;
   }
+
   &__button {
     margin-bottom: 40px;
   }
@@ -46,13 +36,11 @@ $text-width: 489.24px;
 
 @media (max-width: 1000px) {
   .main {
-    //&__img img {
-    //  height: 371.08px;
-    //}
     &__title {
       font-size: 64px;
       margin-bottom: 15px;
     }
+
     &__desc {
       font-size: 14px;
       margin-bottom: 20px;
@@ -64,14 +52,71 @@ $text-width: 489.24px;
 
 @media (max-width: 480px) {
   .main {
-    //&__img {
-    //  height: 337.82px;
-    //}
     &__title {
       margin-bottom: 5px;
     }
+
     &__desc {
       margin-bottom: 13px;
     }
   }
+}
+
+.mainCaps {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 617.9px;
+
+
+  &__caps {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 270px;
+    padding-top: 50px;
+  }
+  &__text {
+    margin-bottom: 20px;
+    margin-left: 27px;
+    color: rgba(255, 255, 255, 1);
+
+  }
+  &__title {
+    display: flex;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+  }
+  &__desc {
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 1000px) {
+    &__title {
+      font-size: 24px;
+    }
+    &__desc {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__text {
+      margin-top: 20px;
+    }
+    &__title {
+      font-size: 18px;
+      color: #555252;
+    }
+    &__desc {
+      font-size: 18px;
+      color: #555252;
+
+    }
+  }
+
 }
